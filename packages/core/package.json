@@ -1,0 +1,34 @@
+{
+  "name": "@context-pilot-v1/core",
+  "version": "0.1.0",
+  "description": "Core context management logic — scanner, tokenizer, scorer, selector, exporter",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts --clean && npm run copy-templates",
+    "copy-templates": "node -e \"const fs=require('fs'),p=require('path');const src=p.join('src','templates'),dst=p.join('dist','templates');fs.mkdirSync(dst,{recursive:true});fs.readdirSync(src).filter(f=>/\\.(md|json|sh)$/.test(f)).forEach(f=>fs.copyFileSync(p.join(src,f),p.join(dst,f)));console.log('Templates copied to dist/templates/')\"",
+    "dev": "tsup src/index.ts --format esm,cjs --dts --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src/"
+  },
+  "dependencies": {
+    "@context-pilot-v1/shared": "workspace:*",
+    "ignore": "^5.3.1",
+    "tiktoken": "^1.0.7"
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.4.0",
+    "vitest": "^1.4.0"
+  }
+}

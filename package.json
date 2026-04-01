@@ -1,0 +1,31 @@
+{
+  "name": "context-pilot",
+  "version": "0.0.0",
+  "private": true,
+  "description": "AI context management for your codebase — CLI, VS Code extension, and web dashboard",
+  "scripts": {
+    "build": "pnpm --recursive --filter './packages/*' build",
+    "test": "pnpm --recursive --filter './packages/*' test",
+    "typecheck": "pnpm --recursive --filter './packages/*' typecheck",
+    "lint": "pnpm --recursive --filter './packages/*' lint",
+    "clean": "pnpm --recursive --filter './packages/*' exec rm -rf dist",
+    "dev:cli": "pnpm --filter @context-pilot/cli dev",
+    "dev:web": "pnpm --filter web dev",
+    "dev:vscode": "pnpm --filter @context-pilot/vscode dev",
+    "release": "pnpm -r build && pnpm --filter @context-pilot-v1/cli version patch && pnpm --filter @context-pilot-v1/* publish --access public"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
+    "eslint": "^8.57.0",
+    "prettier": "^3.2.0",
+    "typescript": "^5.4.0"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "dependencies": {
+    "tiktoken": "^1.0.22"
+  }
+}

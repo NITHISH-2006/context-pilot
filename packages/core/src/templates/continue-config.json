@@ -1,0 +1,48 @@
+{
+  "name": "Context Pilot Workflow",
+  "description": "Auto-generated Continue.dev configuration by Context Pilot",
+  "contextProviders": [
+    {
+      "name": "file",
+      "params": {
+        "path": "CONTEXT.md"
+      }
+    },
+    {
+      "name": "file",
+      "params": {
+        "path": "ARCHITECTURE.md"
+      }
+    },
+    {
+      "name": "file",
+      "params": {
+        "path": "AI-RULES.md"
+      }
+    },
+    {
+      "name": "file",
+      "params": {
+        "path": "AI-TASK.md"
+      }
+    },
+    {
+      "name": "file",
+      "params": {
+        "path": "AI-MEMORY.md"
+      }
+    }
+  ],
+  "slashCommands": [
+    {
+      "name": "scan",
+      "description": "Re-scan project context with Context Pilot",
+      "command": "context-pilot scan"
+    },
+    {
+      "name": "task",
+      "description": "Set the current AI task",
+      "command": "context-pilot task"
+    }
+  ]
+}
