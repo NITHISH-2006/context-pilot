@@ -48,3 +48,6 @@ pnpm-debug.log*
 # Context Pilot — mutable AI state (don't commit)
 .contextpilot/AI-TASK.md
 .contextpilot/AI-MEMORY.md
+
+
+*.tgz
